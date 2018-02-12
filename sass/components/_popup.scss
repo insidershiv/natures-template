@@ -1,0 +1,96 @@
+.popup {
+    height: 100vh;
+    width:100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black , .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+    
+    //  targeting the href = #popup element
+   
+    &__content {
+        @include absCenter;
+        width: 75%;
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        overflow: hidden;
+        display: table;
+        transform: translate(-50%, -50%) scale(.5);
+        transition: all .3s .2s;
+            
+    }
+
+    &__left {
+        width: 33.3333333%;
+        display: table-cell;
+        backface-visibility: hidden;
+        
+    }
+
+    &__right {
+        width: 66.6666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+        backface-visibility: hidden;
+
+    }
+
+    &__img {
+        width: 100%;
+        display: block;
+
+    }
+
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-grey-light-2 ;
+        -moz-hyphens:auto;
+        -webkit-hyphens:auto;
+        hyphens: auto;
+    }
+
+//  target element is whole popup  ||  targeting the href = #popup element
+   
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // styling the content when target  is active or selected
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        text-decoration: none;
+        font-size: 3rem;
+        color: $color-grey-dark-3;
+        display: inline-block;
+        line-height: 1;
+        transition: all .2s;
+    }
+
+    &:hover {
+        color: $color-primary;
+    }
+
+}
+    
+}
